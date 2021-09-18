@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jedi</title>
+</head>
+
+<body>
+	<h1>Cadastrar Jedi</h1>
+	<form action="#" th:action="@{/jedi}" th:object="${jedi}" method="post">
+		<input type="text" id="name" name="name" th:field="*{name}" th:placeholder="Nome" />
+		<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+			Name error
+		</span>
+
+		<input type="text" id="lastName" name="lastName" th:field="*{lastName}" placeholder="Último nome" />
+		<span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">
+			Name error
+		</span>
+
+		<button type="submit">Adicionar Jedi</button>
+	</form>
+
+	<a href="/jedi">Novo Jedi</a>
+</body>
+
+</html>

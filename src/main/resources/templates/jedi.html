@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jedi</title>
+</head>
+
+<body>
+	<div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+	<h1>Força dos Jedis</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Nome</td>
+				<th>Sobrenome</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:if="${allJedi.empty}">
+				<td colspan="2">Não há nenhum Jedi cadastrado</td>
+			</tr>
+
+			<tr th:each="jedi : ${allJedi}">
+				<td th:text="${jedi.name}"></td>
+				<td th:text="${jedi.lastName}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/jedi/new">Novo Jedi</a>
+</body>
+
+</html>
